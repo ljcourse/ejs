@@ -21,6 +21,7 @@ app.use((req, res, next) => {
 
 app.post('/auth/create-acc', auth.signUp);
 app.post('/auth/login', auth.login);
+app.post('/login', auth.signUp);
 app.post('/logout',auth.logout);
 
 app.post('/view',sport.createBlog);

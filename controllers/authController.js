@@ -20,13 +20,14 @@ exports.signUp = async (req, res) => {
             secure: true,
             httpOnly: true,
         });
-        res.status(201).json({
-            status: 'success',
-            token,
-            data: {
-                user: newUser,
-            },
-        });
+        res.status(200).redirect('/login')
+        // res.status(201).json({
+        //     status: 'success',
+        //     token,
+        //     data: {
+        //         user: newUser,
+        //     },
+        // });
     } catch (err) {
         return res.status(500).send(err)
     }
