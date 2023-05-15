@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% if (sport.length === 0) { %>
+        <p>no sports found</p>
+        <% } else { %> <% sport.forEach(s=> { %>
+            <div>
+                <h2><%= s.name%></h2>
+                <p>Type: <%= s.type%></p>
+                <p>Category: <%= s.category%></p>
+                <p>Discipline: <%= s.discipline%></p>
+                <form method="POST" action="/view/delete/<%= s._id%>">
+                    <button type="submit">delete</button>
+                </form>
+                <h2>Update</h2>
+                <form method="POST" action="/view/update/<%= s._id%>">
+                    <label for="name">name: </label>
+                    <input type="text" name="name"  />
+                    <label for="type">type: </label>
+                    <select name="type" required>
+                        <option name="" value="individual">individual</option>
+                        <option name="" value="partner">partner</option>
+                        <option name="" value="team">team</option>
+                    </select>
+                    <label for="category">category: </label>
+                    <input type="text" name="category"  />
+                    <label for="discipline">discipline: </label>
+                    <input type="text" name="discipline" />
+                    <button type="submit">update sport</button>
+                </form>
+                <% }); %> <%} %>
+            </div>
+            <br>
+            <hr>
+            <h2>Post</h2>
+            <div>
+                <form method="POST" action="/view">
+                    <label for="name">name: </label>
+                    <input type="text" name="name"  />
+                    <label for="type">type: </label>
+                    <select name="type" required>
+                        <option name="" value="individual">individual</option>
+                        <option name="" value="partner">partner</option>
+                        <option name="" value="team">team</option>
+                    </select>
+                    <label for="category">category: </label>
+                    <input type="text" name="category"  />
+                    <label for="discipline">discipline: </label>
+                    <input type="text" name="discipline" />
+                    <button type="submit">post new sport</button>
+                </form>
+            </div>
+            <hr/>
+            <form method="POST" action="/logout">
+                <button type="submit">logout</button>
+            </form>
+</div>
+</body>
+</body>
+</html>
